@@ -5,12 +5,25 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ## install homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
+
+
+  printf "Do you want to install ${RED} Homebrew itself${NC}?\n"
+  read -r -p "Please confirm with [y/N] " response
+  case $response in
+    [yY][eE][sS]|[yY])
+      echo "${GREEN} installing homebrew${NC}"
+      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      ;;
+    *)
+      echo "${YELLOW} skipping homebrew ${NC}"
+      ;;
+  esac
+
 
 packages="
 git
