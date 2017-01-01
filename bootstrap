@@ -36,6 +36,7 @@ autojump
 the_silver_searcher
 direnv
 nodenv
+awscli
 "
 
 options=("YES" "NO")
